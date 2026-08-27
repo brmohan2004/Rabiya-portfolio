@@ -104,9 +104,14 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Bottom Floating "Contact for Development" Button below QYNTA watermark */}
+        {/* Bottom Floating "Contact for Development" Button redirecting to https://anthatech.me/ */}
         <div className="contact-for-dev-bar">
-          <a href="mailto:rabiyabano.dev@gmail.com" className="contact-for-dev-btn">
+          <a 
+            href="https://anthatech.me/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="contact-for-dev-btn"
+          >
             <span>Contact for Development</span>
             <div className="contact-dev-icon-circle">
               <ArrowUpRight size={18} />
