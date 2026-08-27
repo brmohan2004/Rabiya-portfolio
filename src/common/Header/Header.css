@@ -1,0 +1,96 @@
+/* ==========================================================================
+   HEADER COMPONENT STYLES (DENNIS SNELLENBERG STYLE)
+   ========================================================================== */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  padding: 0 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  color: #ffffff;
+  font-family: var(--font-family-body);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.header-brand:hover {
+  opacity: 0.85;
+}
+
+.header-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.header-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+
+.header-nav-link:hover {
+  opacity: 0.75;
+}
+
+.header-menu-mobile {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.header-menu-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 1023px) {
+  .site-header {
+    padding: 0 2rem;
+  }
+  .header-nav-desktop {
+    display: none;
+  }
+  .header-menu-mobile {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .site-header {
+    padding: 0 1.25rem;
+    height: 70px;
+  }
+  .header-brand, .header-menu-mobile {
+    font-size: 0.95rem;
+  }
+}

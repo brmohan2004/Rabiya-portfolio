@@ -1,0 +1,72 @@
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM & RESPONSIVE STYLESHEET (DENNIS SNELLENBERG STYLE)
+   ========================================================================== */
+
+:root {
+  /* --- Typography Families --- */
+  --font-family-heading: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'Fira Code', monospace;
+
+  /* --- Global Color Palette --- */
+  --color-bg-main: #999d9e;
+  --color-hero-bg: #999d9e;
+  --color-hero-pill: #1c1d20;
+  --color-hero-text: #ffffff;
+  
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e2e8f0;
+  --color-text-muted: #cbd5e1;
+
+  --color-border: rgba(255, 255, 255, 0.15);
+
+  /* --- Layout Breakpoint System --- */
+  --sidebar-width: 0px;
+  --container-max-width: 1600px;
+  --header-height: 90px;
+
+  /* --- Responsive Font Scale --- */
+  --font-size-h1: clamp(5rem, 15vw, 22rem);
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.75rem;
+  --font-size-body: 1.05rem;
+  --font-size-sm: 0.9rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  background-color: var(--color-hero-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-hero-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}

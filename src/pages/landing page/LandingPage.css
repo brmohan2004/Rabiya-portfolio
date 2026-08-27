@@ -1,0 +1,31 @@
+/* ==========================================================================
+   LANDING PAGE MAIN LAYOUT STYLES
+   ========================================================================== */
+.landing-page-layout {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--color-bg-main);
+}
+
+.landing-page-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: var(--container-padding);
+  max-width: var(--container-max-width);
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* --- Responsive Layout Breakpoints --- */
+@media screen and (max-width: 1023px) {
+  .landing-page-content {
+    margin-left: 0;
+    width: 100%;
+    padding-top: calc(var(--color-navbar-height) + var(--space-lg));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .landing-page-content {
+    padding: calc(var(--color-navbar-height) + var(--space-sm)) var(--container-padding) var(--space-xl) var(--container-padding);
+  }
+}

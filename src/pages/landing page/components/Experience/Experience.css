@@ -1,0 +1,418 @@
+/* ==========================================================================
+   INTERACTIVE HORIZONTAL ROADMAP (VERTICAL SCROLL DRIVEN)
+   ========================================================================== */
+.experience-section {
+  width: 100vw;
+  height: 150vh; /* Scroll range for sticky horizontal translation */
+  background-color: #f9f9fb;
+  color: #1c1d20;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.experience-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: auto;
+  min-height: min-content;
+  max-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  padding: 4rem 8rem 2.5rem 8rem;
+  overflow: hidden;
+}
+
+/* 1. Header Row */
+.experience-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.experience-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #1c1d20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.02em;
+}
+
+.experience-title-icon {
+  color: #1c1d20;
+  stroke-width: 1.75;
+}
+
+.experience-scroll-progress-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.experience-progress-text {
+  font-family: var(--font-family-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666666;
+}
+
+.experience-progress-bar-bg {
+  width: 80px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.experience-progress-bar-fill {
+  height: 100%;
+  background: #1c1d20;
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+/* 2. Track Container */
+.experience-track-container {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 0.25rem;
+  padding-bottom: 1rem;
+}
+
+.roadmap-horizontal-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 3.5rem;
+  position: relative;
+  padding-left: 2rem;
+  padding-right: calc(50vw - 195px);
+  width: max-content;
+  will-change: transform;
+}
+
+/* Background Horizontal Track Lines */
+.roadmap-horizontal-line-bg {
+  position: absolute;
+  top: 51px;
+  left: calc(2rem + 195px);
+  right: calc(50vw);
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.roadmap-horizontal-line-progress {
+  position: absolute;
+  top: 51px;
+  left: calc(2rem + 195px);
+  max-width: calc(100% - 2rem - 195px - 50vw);
+  height: 3px;
+  background: linear-gradient(to right, #1c1d20, #4f46e5);
+  border-radius: 3px;
+  z-index: 2;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+}
+
+/* 3. Horizontal Node Cards */
+.roadmap-h-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+}
+
+/* Period Date Badge */
+.roadmap-h-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1c1d20;
+  background: #ffffff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 12px;
+}
+
+/* Node Dot */
+.roadmap-h-node {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roadmap-h-node-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Active Node Dot Glow */
+.roadmap-h-card-wrapper.is-active .roadmap-h-node {
+  border-color: #1c1d20;
+  box-shadow: 0 0 0 6px rgba(28, 29, 32, 0.12);
+  transform: scale(1.2);
+}
+
+.roadmap-h-card-wrapper.is-active .roadmap-h-node-inner {
+  background-color: #1c1d20;
+}
+
+/* Horizontal Content Card */
+.roadmap-h-card {
+  width: 390px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  margin-top: 1.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.roadmap-h-card-wrapper:hover .roadmap-h-card {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(28, 29, 32, 0.2);
+}
+
+.roadmap-h-card-wrapper.is-active .roadmap-h-card {
+  border-color: rgba(28, 29, 32, 0.18);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Header */
+.roadmap-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.roadmap-role {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1c1d20;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.roadmap-company-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-body);
+  font-size: 0.88rem;
+  color: #666666;
+}
+
+.roadmap-company {
+  font-weight: 600;
+  color: #1c1d20;
+}
+
+.roadmap-dot {
+  opacity: 0.4;
+}
+
+.roadmap-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.roadmap-icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(28, 29, 32, 0.06);
+  color: #1c1d20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.roadmap-h-card-wrapper:hover .roadmap-icon-badge {
+  background: #1c1d20;
+  color: #ffffff;
+}
+
+.roadmap-description {
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #444444;
+  margin-bottom: 1.25rem;
+}
+
+/* Skill Badges */
+.roadmap-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.roadmap-skill-badge {
+  font-family: var(--font-family-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1c1d20;
+  background: rgba(28, 29, 32, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 4px 11px;
+  border-radius: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+  .experience-sticky-wrapper {
+    padding: 4rem 4rem 2rem 4rem;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .experience-section {
+    height: 140vh;
+  }
+
+  .experience-sticky-wrapper {
+    padding: 3.5rem 2.5rem 1.5rem 2.5rem;
+    gap: 1.75rem;
+  }
+
+  .roadmap-h-card {
+    width: 340px;
+    padding: 1.5rem;
+  }
+
+  .roadmap-horizontal-track {
+    padding-right: calc(50vw - 170px);
+  }
+
+  .roadmap-horizontal-line-bg {
+    left: calc(2.5rem + 170px);
+    right: calc(50vw);
+  }
+
+  .roadmap-horizontal-line-progress {
+    left: calc(2.5rem + 170px);
+    max-width: calc(100% - 2.5rem - 170px - 50vw);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .experience-section {
+    height: 120vh;
+  }
+
+  .experience-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 2.25rem 1.25rem 1rem 1.25rem;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    overflow: hidden;
+  }
+
+  .experience-header {
+    margin-bottom: 0;
+  }
+
+  .experience-title {
+    font-size: 1.35rem;
+  }
+
+  .experience-scroll-progress-badge {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .experience-progress-text {
+    font-size: 0.75rem;
+  }
+
+  .experience-progress-bar-bg {
+    width: 50px;
+  }
+
+  .experience-track-container {
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .roadmap-horizontal-track {
+    gap: 1.5rem;
+    padding-left: 1.25rem;
+    padding-right: calc(50vw - 155px);
+  }
+
+  .roadmap-h-card {
+    width: 82vw;
+    max-width: 310px;
+    padding: 1.25rem;
+    margin-top: 0.75rem;
+  }
+
+  .roadmap-horizontal-line-bg {
+    left: calc(1.25rem + 155px);
+    right: calc(50vw);
+  }
+
+  .roadmap-horizontal-line-progress {
+    left: calc(1.25rem + 155px);
+    max-width: calc(100% - 1.25rem - 155px - 50vw);
+  }
+
+  .roadmap-role {
+    font-size: 1.1rem;
+  }
+
+  .roadmap-description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}

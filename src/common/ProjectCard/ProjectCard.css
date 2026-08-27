@@ -1,0 +1,115 @@
+/* ==========================================================================
+   PROJECT CARD COMPONENT STYLES
+   ========================================================================== */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  cursor: pointer;
+  group: project-card;
+}
+
+/* 1. Canvas Image Container */
+.project-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.project-card-number {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.project-card-img-frame {
+  width: 75%;
+  height: 72%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Animations */
+.project-card:hover .project-card-image-wrapper {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card:hover .project-card-img-frame {
+  transform: scale(1.04);
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.06);
+}
+
+/* 2. Details Row Below */
+.project-card-details {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-card-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1c1d20;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.project-card-arrow {
+  color: #1c1d20;
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .project-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.project-card-category {
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  color: #666666;
+  font-weight: 400;
+  margin: 0;
+}

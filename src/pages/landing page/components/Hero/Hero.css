@@ -1,0 +1,354 @@
+/* ==========================================================================
+   HERO COMPONENT STYLES (DENNIS SNELLENBERG PIXEL PERFECT MATCH)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-hero-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 65%);
+}
+
+/* 1. Center Studio Subject Photo */
+.hero-subject-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 88vh;
+  width: auto;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-subject-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  mix-blend-mode: multiply;
+  filter: contrast(1.05) brightness(1.02);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* 2. Floating Location Pill Badge (Left Side) */
+.hero-location-badge {
+  position: absolute;
+  left: 0;
+  top: 48%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: #1c1d20;
+  color: #ffffff;
+  padding: 16px 20px 16px 40px;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.hero-location-badge:hover {
+  padding-right: 28px;
+  transform: translateY(-50%) translateX(4px);
+}
+
+.hero-location-text {
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+.hero-globe-icon-box {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.hero-location-badge:hover .hero-globe-icon-box {
+  transform: rotate(45deg);
+}
+
+/* 3. Right Side Intro Subtitle & Arrow */
+.hero-intro-right {
+  position: absolute;
+  right: 5rem;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 320px;
+}
+
+.hero-arrow-svg {
+  width: 36px;
+  height: 36px;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.hero-role-title {
+  font-family: var(--font-family-body);
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+
+/* 4. Text-less Glass Scroll Indicator (Enlarged Size: 52px) */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-indicator-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(28, 29, 32, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hero-scroll-indicator:hover .scroll-indicator-circle {
+  background: rgba(28, 29, 32, 0.98);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+}
+
+/* When past hero section (Scroll Up mode) */
+.hero-scroll-indicator.is-past-hero {
+  position: fixed;
+  bottom: 2rem;
+  right: 2.5rem;
+  left: auto;
+  transform: none;
+  z-index: 998;
+}
+
+.hero-scroll-indicator.is-past-hero:hover {
+  transform: translateY(-3px);
+}
+
+.scroll-arrow-anim {
+  animation: bounceDown 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.scroll-arrow-anim-up {
+  animation: bounceUp 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes bounceUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* 5. Giant Bottom Marquee / Name Overlay */
+.hero-bottom-marquee {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 0.5rem;
+  pointer-events: none;
+}
+
+.hero-marquee-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marqueeScroll 24s linear infinite;
+  will-change: transform;
+}
+
+.hero-giant-name {
+  font-family: var(--font-family-heading);
+  font-size: clamp(4rem, 11.5vw, 15rem);
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 0.88;
+  white-space: nowrap;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (DESKTOP, TABLET, MOBILE)
+   ========================================================================== */
+
+/* Large Desktop Adjustments */
+@media screen and (min-width: 1600px) {
+  .hero-intro-right {
+    right: 8rem;
+  }
+}
+
+/* Tablet View (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+  .hero-location-badge {
+    padding: 12px 16px 12px 24px;
+    top: 38%;
+  }
+  .hero-globe-icon-box {
+    width: 42px;
+    height: 42px;
+  }
+  .hero-location-text {
+    font-size: 0.85rem;
+  }
+  .hero-intro-right {
+    right: 2.5rem;
+    top: 38%;
+    max-width: 240px;
+  }
+  .hero-role-title {
+    font-size: 1.75rem;
+  }
+  .hero-subject-container {
+    height: 80vh;
+  }
+}
+
+/* Mobile View (< 768px) */
+@media screen and (max-width: 767px) {
+  .hero-location-badge {
+    top: 5.25rem;
+    bottom: auto;
+    left: 0;
+    transform: none;
+    padding: 8px 12px 8px 16px;
+    gap: 10px;
+    z-index: 20;
+  }
+
+  .hero-location-badge:hover {
+    transform: translateX(2px);
+  }
+
+  .hero-globe-icon-box {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-location-text {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .hero-intro-right {
+    top: 5.25rem;
+    bottom: auto;
+    right: 1rem;
+    transform: none;
+    max-width: 150px;
+    z-index: 20;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .hero-arrow-svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role-title {
+    font-size: 1.1rem;
+  }
+
+  .hero-subject-container {
+    height: 72vh;
+  }
+
+  /* Mobile Scroll Indicator Default (on Hero section) */
+  .hero-scroll-indicator {
+    bottom: 10.5rem;
+    right: 1.25rem;
+    left: auto;
+    transform: none;
+    z-index: 20;
+  }
+
+  /* Mobile Scroll Indicator Past Hero (Scroll Up mode sitting above floating navbar) */
+  .hero-scroll-indicator.is-past-hero {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1.25rem;
+    left: auto;
+    transform: none;
+    z-index: 998;
+  }
+
+  .scroll-indicator-circle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hero-bottom-marquee {
+    bottom: 6.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-giant-name {
+    font-size: clamp(3rem, 13vw, 6rem);
+    font-weight: 300;
+  }
+}

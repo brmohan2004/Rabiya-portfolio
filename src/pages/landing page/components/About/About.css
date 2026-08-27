@@ -1,0 +1,138 @@
+/* ==========================================================================
+   ABOUT SECTION STYLES (DENNIS SNELLENBERG STYLE)
+   ========================================================================== */
+.about-section {
+  width: 100vw;
+  background-color: #ffffff;
+  color: #1c1d20;
+  padding: 6rem 8rem 4rem 8rem;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.about-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+/* 1. Title Header */
+.about-header {
+  flex: 1;
+  max-width: 250px;
+}
+
+.about-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #1c1d20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.02em;
+}
+
+.about-title-icon {
+  color: #1c1d20;
+  stroke-width: 1.75;
+}
+
+/* 2. Center Text */
+.about-content {
+  flex: 2;
+  max-width: 580px;
+}
+
+.about-text {
+  font-family: var(--font-family-body);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #1c1d20;
+  letter-spacing: -0.01em;
+}
+
+/* 3. Action Button */
+.about-action {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-cv-btn {
+  background-color: #1c1d20;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-family: var(--font-family-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+}
+
+.about-cv-btn:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media screen and (max-width: 1200px) {
+  .about-section {
+    padding: 5rem 4rem 4rem 4rem;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .about-section {
+    padding: 5rem 3rem 4rem 3rem;
+  }
+  .about-container {
+    gap: 2rem;
+  }
+  .about-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-section {
+    padding: 4rem 1.5rem 3rem 1.5rem;
+  }
+  .about-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .about-header {
+    max-width: 100%;
+  }
+  .about-title {
+    font-size: 1.6rem;
+  }
+  .about-content {
+    max-width: 100%;
+  }
+  .about-text {
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+  .about-action {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+}
