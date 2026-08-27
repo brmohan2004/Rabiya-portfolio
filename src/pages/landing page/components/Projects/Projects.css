@@ -1,145 +1,175 @@
 /* ==========================================================================
-   PROJECTS SECTION COMPONENT STYLES (FEATURED WORK GRID)
+   FEATURED PROJECTS SECTION STYLES (DENNIS SNELLENBERG STYLE)
    ========================================================================== */
 .projects-section {
   width: 100vw;
-  background-color: var(--color-bg);
-  padding: 6rem 0;
-  overflow: hidden;
+  background-color: #ffffff;
+  color: #1c1d20;
+  padding: 4rem 8rem 6rem 8rem;
+  position: relative;
+  z-index: 10;
 }
 
 .projects-container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 4rem;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
 }
 
 /* 1. Header Row */
 .projects-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .projects-title {
   font-family: var(--font-family-heading);
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--color-text-main);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #1c1d20;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  letter-spacing: -0.02em;
 }
 
 .projects-title-icon {
-  color: var(--color-text-main);
-  stroke-width: 1.8;
+  color: #1c1d20;
+  stroke-width: 1.75;
 }
 
 .projects-view-all {
   font-family: var(--font-family-body);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text-subtle);
+  color: #1c1d20;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: color 0.25s ease, transform 0.25s ease;
+  gap: 4px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .projects-view-all:hover {
-  color: var(--color-text-main);
-  transform: translateX(3px);
+  opacity: 0.7;
+  transform: translateX(2px);
 }
 
-/* 2. Horizontally Scrollable Single-Row Grid */
+/* 2. Grid Layout (Desktop View) */
 .projects-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 1.5rem;
-  /* Hide scrollbar for clean aesthetic */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.projects-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  width: 100%;
 }
 
 .projects-grid-item {
-  flex: 0 0 calc(33.333% - 1.67rem);
-  min-width: 320px;
+  width: 100%;
 }
 
-/* 3. Mobile Horizontal Scroll Progress Indicator */
+/* 3. Mobile Scroll Progress Indicator (Hidden on Desktop) */
 .projects-mobile-scroll-indicator {
   display: none;
   justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
 .projects-scroll-track {
-  width: 120px;
+  width: 130px;
   height: 4px;
-  background: rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .projects-scroll-thumb {
   height: 100%;
-  background: var(--color-text-main);
+  background-color: #1c1d20;
   border-radius: 4px;
-  transition: transform 0.15s ease-out;
+  transition: transform 0.1s linear;
 }
 
 /* ==========================================================================
    RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 @media screen and (max-width: 1200px) {
-  .projects-grid-item {
-    flex: 0 0 calc(45% - 1.25rem);
-    min-width: 300px;
+  .projects-section {
+    padding: 4rem 4rem 6rem 4rem;
   }
 }
 
 @media screen and (max-width: 1023px) {
-  .projects-container {
-    padding: 0 2rem;
+  .projects-section {
+    padding: 4rem 3rem 6rem 3rem;
   }
-  .projects-grid-item {
-    flex: 0 0 calc(60% - 1.25rem);
-    min-width: 280px;
-  }
-  .projects-mobile-scroll-indicator {
-    display: flex;
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
-@media screen and (max-width: 640px) {
-  .projects-container {
-    padding: 0 1.25rem;
-    gap: 2.5rem;
+/* Mobile View (< 768px): Single row horizontally scrollable with custom scroll indicator */
+@media screen and (max-width: 767px) {
+  .projects-section {
+    padding: 3rem 1.25rem 5rem 1.25rem;
+  }
+  
+  .projects-header {
+    margin-bottom: 0.5rem;
   }
 
-  .projects-grid {
-    gap: 1.5rem;
-  }
-
-  .projects-grid-item {
-    flex: 0 0 85vw;
-    min-width: 260px;
+  .projects-title {
+    font-size: 1.45rem;
   }
 
   .projects-view-all {
-    display: none;
+    font-size: 0.85rem;
+  }
+
+  /* Single row horizontal scroll container */
+  .projects-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+
+    /* Custom horizontal scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #1c1d20 rgba(0, 0, 0, 0.08);
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    height: 4px;
+    display: block;
+  }
+
+  .projects-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+
+  .projects-grid::-webkit-scrollbar-thumb {
+    background: #1c1d20;
+    border-radius: 4px;
+  }
+
+  .projects-grid-item {
+    flex: 0 0 84vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+
+  .projects-mobile-scroll-indicator {
+    display: flex;
   }
 }
