@@ -1,44 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import ProjectCard from '../../../../common/ProjectCard/ProjectCard';
-import imgCopy from '../../../../assets/image copy.png';
-import img from '../../../../assets/image.png';
-import profileImg from '../../../../assets/rabiya photo (2).png';
+import { projectsData } from '../../../../data/projectsData';
 import './Projects.css';
 
 const Projects = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollRef = useRef(null);
-
-  const projectsList = [
-    {
-      id: 1,
-      number: '01',
-      title: 'Portfolio Website',
-      category: 'Web Design',
-      bgColor: '#1c1d20',
-      image: imgCopy,
-      link: '#',
-    },
-    {
-      id: 2,
-      number: '02',
-      title: 'Mobile Banking App',
-      category: 'UI/UX Design',
-      bgColor: '#e0e0e0',
-      image: img,
-      link: '#',
-    },
-    {
-      id: 3,
-      number: '03',
-      title: 'Brand Identity',
-      category: 'Branding',
-      bgColor: '#b5a999',
-      image: profileImg,
-      link: '#',
-    },
-  ];
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -69,15 +37,14 @@ const Projects = () => {
           ref={scrollRef}
           onScroll={handleScroll}
         >
-          {projectsList.map((project) => (
+          {projectsData.map((project, idx) => (
             <div key={project.id} className="projects-grid-item">
               <ProjectCard
-                number={project.number}
+                id={project.id}
+                number={String(idx + 1).padStart(2, '0')}
                 title={project.title}
                 category={project.category}
-                bgColor={project.bgColor}
                 image={project.image}
-                link={project.link}
               />
             </div>
           ))}
@@ -88,7 +55,7 @@ const Projects = () => {
           <div className="projects-scroll-track">
             <div 
               className="projects-scroll-thumb"
-              style={{ width: `${100 / projectsList.length}%`, transform: `translateX(${scrollProgress * (projectsList.length - 1) / 100 * 100}%)` }}
+              style={{ width: `${100 / projectsData.length}%`, transform: `translateX(${scrollProgress * (projectsData.length - 1) / 100 * 100}%)` }}
             />
           </div>
         </div>

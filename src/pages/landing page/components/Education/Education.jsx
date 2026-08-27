@@ -6,9 +6,10 @@ const Education = () => {
   const educationList = [
     {
       id: 1,
-      degree: 'BSc in Computer Science',
-      institution: 'University of Amsterdam',
+      degree: 'Bachelor of Engineering in Civil Engineering (B.E. Civil)',
+      institution: 'APJ Abdul Kalam Technological University',
       period: '2016 – 2020',
+      details: 'Specialization in Structural Analysis, Building Information Modeling (BIM), AutoCAD 2D/3D Drafting & Façade Technology.'
     },
   ];
 
@@ -29,6 +30,7 @@ const Education = () => {
               <div className="education-info">
                 <h3 className="education-degree">{item.degree}</h3>
                 <p className="education-institution">{item.institution}</p>
+                {item.details && <p className="education-details-text">{item.details}</p>}
                 <span className="education-period">{item.period}</span>
               </div>
               <div className="education-icon-wrapper">

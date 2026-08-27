@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { 
   ArrowUpRight, 
-  Code, 
-  FileCode, 
-  Globe, 
-  Server, 
-  Palette, 
-  Layout, 
-  GitBranch, 
-  Database, 
-  Cpu, 
-  Sparkles, 
+  Compass, 
   Layers, 
-  Terminal 
+  Box, 
+  PenTool, 
+  Maximize2, 
+  FileText, 
+  ShieldCheck, 
+  Building2 
 } from 'lucide-react';
 import './Skills.css';
 
@@ -22,87 +18,59 @@ const Skills = () => {
   const skillsData = [
     {
       id: 1,
-      name: 'React.js',
-      category: 'Frontend',
-      icon: <Code size={32} />,
-      color: '#00d8ff',
+      name: 'AutoCAD 2D/3D',
+      category: 'Drafting & Specs',
+      icon: <PenTool size={32} />,
+      color: '#e11d48',
     },
     {
       id: 2,
-      name: 'Next.js',
-      category: 'Framework',
-      icon: <Globe size={32} />,
-      color: '#1c1d20',
+      name: 'Façade Design',
+      category: 'Curtain Wall / Glazing',
+      icon: <Building2 size={32} />,
+      color: '#4f46e5',
     },
     {
       id: 3,
-      name: 'JavaScript',
-      category: 'Language',
-      icon: <FileCode size={32} />,
-      color: '#f7df1e',
+      name: 'Revit Architecture',
+      category: 'BIM & 3D Elevation',
+      icon: <Box size={32} />,
+      color: '#2563eb',
     },
     {
       id: 4,
-      name: 'TypeScript',
-      category: 'Language',
-      icon: <FileCode size={32} />,
-      color: '#3178c6',
+      name: 'Civil Engineering',
+      category: 'Structural Layouts',
+      icon: <Compass size={32} />,
+      color: '#059669',
     },
     {
       id: 5,
-      name: 'Node.js',
-      category: 'Backend',
-      icon: <Server size={32} />,
-      color: '#539e43',
+      name: '3ds Max / SketchUp',
+      category: 'Architectural Visuals',
+      icon: <Layers size={32} />,
+      color: '#d97706',
     },
     {
       id: 6,
-      name: 'Tailwind CSS',
-      category: 'Styling',
-      icon: <Layout size={32} />,
-      color: '#38bdf8',
+      name: 'Structural Joints',
+      category: 'Steel & Glass Details',
+      icon: <Maximize2 size={32} />,
+      color: '#0891b2',
     },
     {
       id: 7,
-      name: 'Figma',
-      category: 'UI/UX Design',
-      icon: <Palette size={32} />,
-      color: '#f24e1e',
+      name: 'Quantity Surveying',
+      category: 'BOQ & Estimation',
+      icon: <FileText size={32} />,
+      color: '#7c3aed',
     },
     {
       id: 8,
-      name: 'Git & GitHub',
-      category: 'DevOps',
-      icon: <GitBranch size={32} />,
-      color: '#f05032',
-    },
-    {
-      id: 9,
-      name: 'REST APIs',
-      category: 'Architecture',
-      icon: <Database size={32} />,
-      color: '#6366f1',
-    },
-    {
-      id: 10,
-      name: 'Redux / State',
-      category: 'State Mgmt',
-      icon: <Layers size={32} />,
-      color: '#764abc',
-    },
-    {
-      id: 11,
-      name: 'Performance',
-      category: 'Optimization',
-      icon: <Cpu size={32} />,
-      color: '#10b981',
-    },
-    {
-      id: 12,
-      name: 'Animations',
-      category: 'Framer / CSS',
-      icon: <Sparkles size={32} />,
-      color: '#ec4899',
+      name: 'Shop Drawings',
+      category: 'ACP & Extrusions',
+      icon: <ShieldCheck size={32} />,
+      color: '#16a34a',
     },
   ];
 
@@ -112,7 +80,7 @@ const Skills = () => {
         {/* Section Header */}
         <div className="skills-header">
           <h2 className="skills-title">
-            Skills & Technologies <ArrowUpRight size={24} className="skills-title-icon" />
+            Skills & Expertise <ArrowUpRight size={24} className="skills-title-icon" />
           </h2>
         </div>
 

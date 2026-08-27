@@ -8,7 +8,6 @@ const Hero = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Turn into Scroll Up button as soon as user scrolls down past 80px
       setIsPastHero(window.scrollY > 80);
     };
 
@@ -31,7 +30,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section">
-      {/* 1. Left Location Pill Badge (Flush with Left Edge) */}
+      {/* 1. Left Location Pill Badge */}
       <div className="hero-location-badge">
         <div className="hero-location-text">
           Located <br />
@@ -50,8 +49,8 @@ const Hero = () => {
           <polyline points="17 7 17 17 7 17"></polyline>
         </svg>
         <div className="hero-role-title">
-          Freelance <br />
-          Designer & Developer
+          AutoCAD Draftsman <br />
+          & Façade Designer
         </div>
       </div>
 
@@ -59,7 +58,7 @@ const Hero = () => {
       <div className="hero-subject-container">
         <img 
           src={profileImg} 
-          alt="Rabiya - Designer & Developer" 
+          alt="Rabiya - AutoCAD Draftsman & Façade Designer" 
           className="hero-subject-img"
         />
       </div>
@@ -83,10 +82,10 @@ const Hero = () => {
       {/* 5. Giant Bottom Marquee Typography */}
       <div className="hero-bottom-marquee">
         <div className="hero-marquee-track">
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
+          <span className="hero-giant-name">Rabiya Façade Designer —</span>
+          <span className="hero-giant-name">AutoCAD Draftsman —</span>
+          <span className="hero-giant-name">Civil Engineering —</span>
+          <span className="hero-giant-name">Rabiya Façade Designer —</span>
         </div>
       </div>
     </section>

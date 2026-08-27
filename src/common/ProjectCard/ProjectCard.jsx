@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import './ProjectCard.css';
 
-const ProjectCard = ({ number, title, category, image, bgColor = '#1c1d20', link = '#' }) => {
+const ProjectCard = ({ id, number, title, category, image, bgColor = '#1c1d20', link }) => {
+  const destination = link || (id ? `/project/${id}` : '#');
+
   return (
-    <a href={link} className="project-card" aria-label={title}>
+    <Link to={destination} className="project-card" aria-label={title}>
       {/* 1. Canvas Image Container */}
       <div className="project-card-image-wrapper" style={{ backgroundColor: bgColor }}>
-        <span className="project-card-number">{number}</span>
+        {number && <span className="project-card-number">{number}</span>}
         
         <div className="project-card-img-frame">
           <img 
@@ -26,7 +29,7 @@ const ProjectCard = ({ number, title, category, image, bgColor = '#1c1d20', link
         </div>
         <p className="project-card-category">{category}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 

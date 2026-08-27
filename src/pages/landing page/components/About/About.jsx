@@ -16,7 +16,7 @@ const About = () => {
         {/* 2. Center Description Paragraph */}
         <div className="about-content">
           <p className="about-text">
-            I'm a freelance designer and developer based in India. I create clean, functional digital products and help brands bring their ideas to life.
+            I am a specialized <strong>AutoCAD Draftsman & Façade Designer</strong> with a solid background in <strong>Civil Engineering</strong>. I specialize in unitized curtain walls, aluminum composite panel (ACP) cladding, structural glazing 2D shop drawings, and 3D architectural detailing.
           </p>
         </div>
 
