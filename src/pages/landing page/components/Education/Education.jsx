@@ -6,9 +6,10 @@ const Education = () => {
   const educationList = [
     {
       id: 1,
-      degree: 'BSc in Computer Science',
-      institution: 'University of Amsterdam',
-      period: '2016 – 2020',
+      degree: 'B.E Civil Engineering',
+      institution: 'Anna University',
+      period: '2013 – 2017',
+      cgpa: 'CGPA: 7.41',
     },
   ];
 
@@ -29,7 +30,10 @@ const Education = () => {
               <div className="education-info">
                 <h3 className="education-degree">{item.degree}</h3>
                 <p className="education-institution">{item.institution}</p>
-                <span className="education-period">{item.period}</span>
+                <div className="education-meta-row">
+                  <span className="education-period">{item.period}</span>
+                  <span className="education-cgpa">{item.cgpa}</span>
+                </div>
               </div>
               <div className="education-icon-wrapper">
                 <GraduationCap size={44} strokeWidth={1.4} className="education-icon" />

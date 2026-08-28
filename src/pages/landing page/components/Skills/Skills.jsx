@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  ArrowUpRight, 
-  Code, 
-  FileCode, 
-  Globe, 
-  Server, 
-  Palette, 
-  Layout, 
-  GitBranch, 
-  Database, 
-  Cpu, 
-  Sparkles, 
-  Layers, 
-  Terminal 
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import autoCadImg from '../../../../assets/auto cad.jpg';
+import revitImg from '../../../../assets/revit.jpg';
+import staadImg from '../../../../assets/staad pro.jpg';
+import primaveraImg from '../../../../assets/Primavera 6.webp';
+import msOfficeImg from '../../../../assets/MS Office.webp';
 import './Skills.css';
 
 const Skills = () => {
@@ -22,87 +13,33 @@ const Skills = () => {
   const skillsData = [
     {
       id: 1,
-      name: 'React.js',
-      category: 'Frontend',
-      icon: <Code size={32} />,
-      color: '#00d8ff',
+      name: 'Auto CADD',
+      category: '2D & 3D Drafting',
+      image: autoCadImg,
     },
     {
       id: 2,
-      name: 'Next.js',
-      category: 'Framework',
-      icon: <Globe size={32} />,
-      color: '#1c1d20',
+      name: 'Revit',
+      category: 'BIM & Façade Modeling',
+      image: revitImg,
     },
     {
       id: 3,
-      name: 'JavaScript',
-      category: 'Language',
-      icon: <FileCode size={32} />,
-      color: '#f7df1e',
+      name: 'STAAD Pro',
+      category: 'Structural Analysis',
+      image: staadImg,
     },
     {
       id: 4,
-      name: 'TypeScript',
-      category: 'Language',
-      icon: <FileCode size={32} />,
-      color: '#3178c6',
+      name: 'Primavera',
+      category: 'Project Scheduling',
+      image: primaveraImg,
     },
     {
       id: 5,
-      name: 'Node.js',
-      category: 'Backend',
-      icon: <Server size={32} />,
-      color: '#539e43',
-    },
-    {
-      id: 6,
-      name: 'Tailwind CSS',
-      category: 'Styling',
-      icon: <Layout size={32} />,
-      color: '#38bdf8',
-    },
-    {
-      id: 7,
-      name: 'Figma',
-      category: 'UI/UX Design',
-      icon: <Palette size={32} />,
-      color: '#f24e1e',
-    },
-    {
-      id: 8,
-      name: 'Git & GitHub',
-      category: 'DevOps',
-      icon: <GitBranch size={32} />,
-      color: '#f05032',
-    },
-    {
-      id: 9,
-      name: 'REST APIs',
-      category: 'Architecture',
-      icon: <Database size={32} />,
-      color: '#6366f1',
-    },
-    {
-      id: 10,
-      name: 'Redux / State',
-      category: 'State Mgmt',
-      icon: <Layers size={32} />,
-      color: '#764abc',
-    },
-    {
-      id: 11,
-      name: 'Performance',
-      category: 'Optimization',
-      icon: <Cpu size={32} />,
-      color: '#10b981',
-    },
-    {
-      id: 12,
-      name: 'Animations',
-      category: 'Framer / CSS',
-      icon: <Sparkles size={32} />,
-      color: '#ec4899',
+      name: 'MS Office',
+      category: 'Documentation & BOQ',
+      image: msOfficeImg,
     },
   ];
 
@@ -112,12 +49,12 @@ const Skills = () => {
         {/* Section Header */}
         <div className="skills-header">
           <h2 className="skills-title">
-            Skills & Technologies <ArrowUpRight size={24} className="skills-title-icon" />
+            Skills & Software <ArrowUpRight size={24} className="skills-title-icon" />
           </h2>
         </div>
 
         {/* 3D Interactive Jumping Cubes Grid */}
-        <div className="skills-grid">
+        <div className="skills-grid skills-grid-5">
           {skillsData.map((skill) => (
             <div 
               key={skill.id} 
@@ -128,8 +65,8 @@ const Skills = () => {
               <div className="cube-3d-wrapper">
                 {/* Front Face */}
                 <div className="cube-face cube-front">
-                  <div className="cube-icon-box" style={{ color: skill.color }}>
-                    {skill.icon}
+                  <div className="cube-icon-box">
+                    <img src={skill.image} alt={skill.name} className="cube-skill-img" />
                   </div>
                   <span className="cube-skill-name">{skill.name}</span>
                   <span className="cube-skill-category">{skill.category}</span>

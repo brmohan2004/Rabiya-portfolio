@@ -2,7 +2,7 @@
    HEADER COMPONENT STYLES (DENNIS SNELLENBERG STYLE)
    ========================================================================== */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -14,6 +14,13 @@
   z-index: 100;
   color: #ffffff;
   font-family: var(--font-family-body);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-brand {

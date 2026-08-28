@@ -59,41 +59,54 @@
   gap: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .hero-location-badge:hover {
   padding-right: 28px;
   transform: translateY(-50%) translateX(4px);
+  background-color: #26272b;
 }
 
 .hero-location-text {
   font-family: var(--font-family-body);
-  font-size: 0.95rem;
-  font-weight: 300;
-  line-height: 1.35;
-  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.01em;
 }
 
 .hero-globe-icon-box {
-  width: 52px;
-  height: 52px;
-  background-color: rgba(255, 255, 255, 0.18);
+  width: 68px;
+  height: 68px;
+  background-color: transparent;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   transition: transform 0.4s ease;
+  overflow: visible;
 }
 
-.hero-location-badge:hover .hero-globe-icon-box {
-  transform: rotate(45deg);
+.hero-antha-logo-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.hero-location-badge:hover .hero-antha-logo-img {
+  transform: scale(1.15) rotate(8deg);
 }
 
 /* 3. Right Side Intro Subtitle & Arrow */
 .hero-intro-right {
   position: absolute;
-  right: 5rem;
+  right: 8.5rem;
   top: 40%;
   transform: translateY(-50%);
   z-index: 10;
@@ -258,7 +271,7 @@
     font-size: 0.85rem;
   }
   .hero-intro-right {
-    right: 2.5rem;
+    right: 5rem;
     top: 38%;
     max-width: 240px;
   }
@@ -287,19 +300,25 @@
   }
 
   .hero-globe-icon-box {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+  }
+
+  .hero-antha-logo-img {
+    width: 44px;
+    height: 44px;
   }
 
   .hero-location-text {
-    font-size: 0.75rem;
-    line-height: 1.25;
+    font-size: 0.65rem;
+    line-height: 1.2;
   }
 
   .hero-intro-right {
     top: 5.5rem;
     bottom: auto;
-    right: 1rem;
+    right: 1.5rem;
     transform: none;
     max-width: 150px;
     z-index: 20;
@@ -323,7 +342,7 @@
 
   /* Mobile Scroll Indicator Default (on Hero section) */
   .hero-scroll-indicator {
-    bottom: 12rem;
+    bottom: 10rem;
     right: 1.25rem;
     left: auto;
     transform: none;
@@ -346,8 +365,8 @@
   }
 
   .hero-bottom-marquee {
-    bottom: 7.5rem;
-    padding-bottom: 0.5rem;
+    bottom: 5.5rem;
+    padding-bottom: 0;
   }
 
   .hero-giant-name {
@@ -367,11 +386,11 @@
   }
 
   .hero-bottom-marquee {
-    bottom: 7.25rem;
+    bottom: 5.25rem;
   }
 
   .hero-scroll-indicator {
-    bottom: 11.5rem;
+    bottom: 9.5rem;
   }
 
   .hero-giant-name {

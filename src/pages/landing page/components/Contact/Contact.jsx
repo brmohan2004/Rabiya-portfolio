@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Mail, Phone, MapPin, Globe, Share2, Send, MessageSquare } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, Mail, Phone, Globe, Share2, Send, MessageSquare } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
-  const [currentTime, setCurrentTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true };
-      setCurrentTime(now.toLocaleTimeString('en-US', options));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <footer id="contact" className="contact-section">
       {/* Background Giant Watermark Text */}
@@ -42,20 +28,20 @@ const Contact = () => {
           {/* Quick Action Pill Buttons */}
           <div className="contact-actions-row">
             <a 
-              href="mailto:rabiyabano.dev@gmail.com" 
+              href="mailto:aafreenaafy@gmail.com" 
               className="contact-pill-btn primary"
             >
               <Mail size={20} />
-              <span>rabiyabano.dev@gmail.com</span>
+              <span>aafreenaafy@gmail.com</span>
               <ArrowUpRight size={20} className="pill-arrow-icon" />
             </a>
 
             <a 
-              href="tel:+919876543210" 
+              href="tel:+917418374730" 
               className="contact-pill-btn secondary"
             >
               <Phone size={18} />
-              <span>+91 98765 43210</span>
+              <span>+91 7418374730</span>
             </a>
           </div>
         </div>
@@ -78,21 +64,6 @@ const Contact = () => {
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="contact-social-link">
                 <Globe size={16} /> Instagram
               </a>
-            </div>
-          </div>
-
-          {/* Location & Local Time Column */}
-          <div className="contact-footer-col">
-            <span className="contact-col-title">Location & Time</span>
-            <div className="contact-location-box">
-              <div className="contact-location-item">
-                <MapPin size={16} />
-                <span>India</span>
-              </div>
-              <div className="contact-time-item">
-                <Globe size={16} />
-                <span>{currentTime || 'IST'} (GMT +5:30)</span>
-              </div>
             </div>
           </div>
 

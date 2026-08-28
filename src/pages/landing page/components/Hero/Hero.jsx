@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Globe, ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowDown, ArrowUp } from 'lucide-react';
 import profileImg from '../../../../assets/rabiya photo (2).png';
+import anthaTechLogo from '../../../../assets/image copy 2.png';
 import './Hero.css';
 
 const Hero = () => {
@@ -31,17 +32,23 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section">
-      {/* 1. Left Location Pill Badge (Flush with Left Edge) */}
-      <div className="hero-location-badge">
+      {/* 1. Left Brand Badge (Redirects to https://anthatech.me/) */}
+      <a
+        href="https://anthatech.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hero-location-badge hero-brand-link-badge"
+        title="Developed by Antha Tech"
+      >
         <div className="hero-location-text">
-          Located <br />
-          in <br />
-          India
+          Developed <br />
+          by <br />
+          Antha Tech
         </div>
-        <div className="hero-globe-icon-box">
-          <Globe size={24} color="#ffffff" strokeWidth={1.5} />
+        <div className="hero-globe-icon-box hero-logo-icon-box">
+          <img src={anthaTechLogo} alt="Antha Tech Logo" className="hero-antha-logo-img" />
         </div>
-      </div>
+      </a>
 
       {/* 2. Right Intro Subtitle & Custom Down-Right Arrow */}
       <div className="hero-intro-right">
@@ -50,25 +57,26 @@ const Hero = () => {
           <polyline points="17 7 17 17 7 17"></polyline>
         </svg>
         <div className="hero-role-title">
-          Freelance <br />
-          Designer & Developer
+          Façade Designer <br />
+          & CADD <br />
+          Specialist
         </div>
       </div>
 
       {/* 3. Center Studio Subject Photo */}
       <div className="hero-subject-container">
-        <img 
-          src={profileImg} 
-          alt="Rabiya - Designer & Developer" 
+        <img
+          src={profileImg}
+          alt="Rabiya Aafreen J - Facade Designer & Developer"
           className="hero-subject-img"
         />
       </div>
 
       {/* 4. Text-less Glass Scroll Down / Up Indicator */}
-      <a 
-        href={isPastHero ? "#hero" : "#about"} 
+      <a
+        href={isPastHero ? "#hero" : "#about"}
         onClick={handleScrollClick}
-        className={`hero-scroll-indicator ${isPastHero ? 'is-past-hero' : ''}`} 
+        className={`hero-scroll-indicator ${isPastHero ? 'is-past-hero' : ''}`}
         aria-label={isPastHero ? "Scroll up to hero" : "Scroll down to about"}
       >
         <div className="scroll-indicator-circle">
@@ -83,10 +91,10 @@ const Hero = () => {
       {/* 5. Giant Bottom Marquee Typography */}
       <div className="hero-bottom-marquee">
         <div className="hero-marquee-track">
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
-          <span className="hero-giant-name">Rabiya Developer —</span>
+          <span className="hero-giant-name">Rabiya Aafreen J —</span>
+          <span className="hero-giant-name">Rabiya Aafreen J —</span>
+          <span className="hero-giant-name">Rabiya Aafreen J —</span>
+          <span className="hero-giant-name">Rabiya Aafreen J —</span>
         </div>
       </div>
     </section>
