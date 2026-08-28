@@ -160,7 +160,10 @@ const Experience = () => {
                   </div>
 
                   {/* Horizontal Card */}
-                  <div className="roadmap-h-card">
+                  <div 
+                    className="roadmap-h-card"
+                    onClick={() => openModal(item)}
+                  >
                     <div className="roadmap-card-header">
                       <div>
                         <h3 className="roadmap-role">{item.role}</h3>
