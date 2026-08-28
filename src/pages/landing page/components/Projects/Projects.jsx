@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import ProjectCard from '../../../../common/ProjectCard/ProjectCard';
 import imgCopy from '../../../../assets/image copy.png';
-import img from '../../../../assets/image.png';
-import profileImg from '../../../../assets/rabiya photo (2).png';
+import autoCadImg from '../../../../assets/auto cad.jpg';
+import revitImg from '../../../../assets/revit.jpg';
 import './Projects.css';
 
 const Projects = () => {
@@ -14,8 +14,8 @@ const Projects = () => {
     {
       id: 1,
       number: '01',
-      title: 'Portfolio Website',
-      category: 'Web Design',
+      title: 'Curtain Wall & Glazing System',
+      category: 'Façade Design & Shop Drawings',
       bgColor: '#1c1d20',
       image: imgCopy,
       link: '#',
@@ -23,19 +23,19 @@ const Projects = () => {
     {
       id: 2,
       number: '02',
-      title: 'Mobile Banking App',
-      category: 'UI/UX Design',
-      bgColor: '#e0e0e0',
-      image: img,
+      title: 'Aluminium Cladding & Detailing',
+      category: 'AutoCAD & Revit 3D Drafting',
+      bgColor: '#26272b',
+      image: revitImg,
       link: '#',
     },
     {
       id: 3,
       number: '03',
-      title: 'Brand Identity',
-      category: 'Branding',
-      bgColor: '#b5a999',
-      image: profileImg,
+      title: 'Structural Glass & BOQ Take-offs',
+      category: 'Fabrication Layouts & Estimation',
+      bgColor: '#1a222e',
+      image: autoCadImg,
       link: '#',
     },
   ];
